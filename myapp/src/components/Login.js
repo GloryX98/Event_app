@@ -1,28 +1,30 @@
-import React        from 'react';
-import InputField   from './InputField';
-import SubmitButton from './SubmitButton';
 import UserStore    from '../stores/UserStore';
 import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import axios from "axios";
+import { API_URL } from "../constants";
 
-class LoginForm extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            email: '',
-            password: '',
-            buttonDisabled: false
-        }
-    } 
-// PROPERTY HERE REFERS TO THE 'EMAIL' AND 'PASSWORD'
-    setInputValue(property, val) {
-        val = val.trim();
-        if(val.length < 0){
-            return;
-        }
-        this.setState({
-            [property]: val
-        })
+export default class Login extends Component {
+    state =  {
+        email: "",
+        password: "",
     }
+// PROPERTY HERE REFERS TO THE 'EMAIL' AND 'PASSWORD'
+onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+};
+
+logIn = e => {
+    e.preventDefault();
+    axios.post(API_URL, this.state)
+    .then(() => {
+        console.log(this.state)
+        this.setState({
+            email: "",
+            password: "",
+        })
+    })
+}
     resetForm() {
         this.setState({
             email: '',
@@ -86,31 +88,30 @@ class LoginForm extends React.Component{
                 {/* THE INPUT FIELD FOR EMAIL ADDRESS */}
                 <div className="input-group">
             <span><i className="fa fa-user" aria-hidden="true"></i></span>
-                    <InputField
+
+                    <input className='InputField'
                         type = 'email'
-                        placeholder = 'Email *'
-                        required = {true}
-                        value = { this.state.email ? this.state.email: ''}
-                        onChange = { (val) => this.setInputValue('email', val)}
-                />
+                        value = { this.state.email }
+                        onChange = { this.onChange }
+                        placeholder = 'Email*' required/>
+                
                 </div>
                 {/* THE INPUT FIELD FOR PASSWORD */}
                 <div className="input-group">
             <span><i className="fa fa-lock" aria-hidden="true"></i></span>
-                    <InputField
-                        type = 'Password'
-                        placeholder = 'Password *' 
-                        required = {true}
-                        value = { this.state.password ? this.state.password: ''}
-                        onChange = { (val) => this.setInputValue('password', val)}
-                    />
+                    <input className='InputField'
+                        type = 'password' 
+                        value = { this.state.password }
+                        onChange = { this.onChange }
+                        placeholder = 'Password*' required/>
+                    
                     </div>
                 {/* THE LOG IN BUTTON */}
-                    <SubmitButton
+                    <button className='btn'
                         text = 'Sign in to your account'
                         disabled = { this.state.buttonDisabled}
-                        onClick = { () => this.doLogin()}
-                        />
+                        onClick = { () => this.doLogin()}/>
+                    
                 {/* THE CODE BELLOW CREATES A HORIZONTAL LINE */}
                     <hr className='line'></hr>
                         
@@ -123,5 +124,3 @@ class LoginForm extends React.Component{
         );
     }
 }
-
-export default LoginForm;
