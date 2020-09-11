@@ -51,13 +51,14 @@ font-family: 'Raleway', sans-serif;
 .InputField {
   padding-top: 12px;
   padding-bottom: 12px;
+  color: black;
 }
 .btn {
   color: #ffffff;
   cursor: pointer;
   left: 0px;
     top: 0px;
-    width: 402px;
+    width: 150px;
     height: 40px;
     background-image: inherit;
     background-position: inherit;
@@ -68,12 +69,14 @@ font-family: 'Raleway', sans-serif;
     background-clip: inherit;
     background-color: rgb(0, 109, 230);
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     box-shadow: none;
     font-family: "Raleway SemiBold", "Raleway Regular", Raleway, sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 15px;
+    margin-left: 130px;
+    margin-top: 30px;
 }
 .sign {
   color: #ffffff;

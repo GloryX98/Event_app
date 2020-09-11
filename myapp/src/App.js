@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import UserStore from './stores/UserStore';
 import LoginForm from './components/LoginForm';
-import SubmitButton from './components/SubmitButton';
 import './App.css';
 import Signup from './components/Signup';
 
@@ -74,7 +73,7 @@ class App extends React.Component{
             <div className = 'containerr'>
               Welcome {UserStore.email}
             {/*LOG OUT BUTTON */}
-              <SubmitButton
+              <button
                 text = {'Log out'}
                 disabled = {false}
                 onClick = { () => this.doLogout()}

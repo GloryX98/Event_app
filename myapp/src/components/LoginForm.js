@@ -10,21 +10,21 @@ export default class Login extends Component {
         password: "",
     }
 // PROPERTY HERE REFERS TO THE 'EMAIL' AND 'PASSWORD'
-onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-};
+    onChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+    };
 
-logIn = e => {
-    e.preventDefault();
-    axios.post(API_URL, this.state)
-    .then(() => {
-        console.log(this.state)
-        this.setState({
-            email: "",
-            password: "",
+    logIn = e => {
+        e.preventDefault();
+        axios.post(API_URL, this.state)
+        .then(() => {
+            console.log(this.state)
+            this.setState({
+                email: " ",
+                password: " ",
+            })
         })
-    })
-}
+    }
     resetForm() {
         this.setState({
             email: '',
@@ -91,8 +91,9 @@ logIn = e => {
 
                     <input className='InputField'
                         type = 'email'
-                        value = { this.state.email }
-                        onChange = { this.onChange }
+                        name='email'
+                        value = {this.state.email}
+                        onChange = {this.onChange}
                         placeholder = 'Email*' required/>
                 
                 </div>
@@ -101,16 +102,14 @@ logIn = e => {
             <span><i className="fa fa-lock" aria-hidden="true"></i></span>
                     <input className='InputField'
                         type = 'password' 
-                        value = { this.state.password }
-                        onChange = { this.onChange }
+                        name='password'
+                        value = {this.state.password}
+                        onChange = {this.onChange}
                         placeholder = 'Password*' required/>
                     
                     </div>
                 {/* THE LOG IN BUTTON */}
-                    <button className='btn'
-                        text = 'Sign in to your account'
-                        disabled = { this.state.buttonDisabled}
-                        onClick = { () => this.doLogin()}/>
+                <button className="btn">Sign In</button>
                     
                 {/* THE CODE BELLOW CREATES A HORIZONTAL LINE */}
                     <hr className='line'></hr>
