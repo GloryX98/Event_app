@@ -109,7 +109,7 @@ export default class Login extends Component {
                     
                     </div>
                 {/* THE LOG IN BUTTON */}
-                <button className="btn">Sign In</button>
+                <button className="btn" type="submit">Sign In</button>
                     
                 {/* THE CODE BELLOW CREATES A HORIZONTAL LINE */}
                     <hr className='line'></hr>
