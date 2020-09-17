@@ -24,7 +24,59 @@ export default class Login extends Component {
             })
         })
     }
+    resetForm() {
+        this.setState({
+            email: '',
+            password: '',
+            buttonDisabled: false
+        })
+    }
+    // API CALL FOR THE LOGIN BUTTON
+    async doLogin() {
+        if (!this.state.email){
+            return;
+        }
+        if (!this.state.password){
+            return;
+        }
 
+        this.setState({
+            buttonDisabled: true
+        })
+
+        try {
+           
+            let res = await fetch('http://127.0.0.1:8000/login/users/', {
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+
+                body: JSON.stringify({
+                    email: this.state.email,
+                    password: this.state.password
+                })
+            });
+
+            let result = await res.json();
+            if (result && result.success) {
+                UserStore.isLoggedIn = true;
+                UserStore.email = result.email;
+            }
+
+            else if (result && result.success === false) {
+                this.resetForm();
+                alert (result.msg);
+            }
+        }
+
+        catch(e) {
+            console.log(e);
+            this.resetForm();
+
+        }
+    }
     render(){  
     // USER INTERFACE FOR THE LOGIN FORM
         return(
