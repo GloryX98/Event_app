@@ -162,13 +162,11 @@ background-color: #ffffff;
 
 i.fa.fa-user {
   font-size: 16px;
-   vertical-align: middle;
-   color:#006DE6;
  box-sizing:border-box;
- float:left;
+ display: block;
  width:6%;
-   margin-top: 13px;
-   text-align: center;
+ margin-top: 13px;
+ text-align: center;
 }
 
 i.fa.fa-envelope {
@@ -183,7 +181,7 @@ i.fa.fa-envelope {
 }
 
 i.fa.fa-lock {
-   font-size: 16px;
+  font-size: 16px;
    vertical-align: middle;
    color: #006DE6;
  box-sizing:border-box;
@@ -191,4 +189,39 @@ i.fa.fa-lock {
  width:6%;
    margin-top: 13px;
    text-align: center;
+}
+
+i.fa.fa-map-marker {
+  font-size: 16px;
+ box-sizing:border-box;
+ display: block;
+ margin-top: 13px;
+}
+
+i.fa.fa-microphone {
+  font-size: 16px;
+ box-sizing:border-box;
+ display: block;
+ margin-top: 13px;
+}
+
+i.fa.fa-calendar-o {
+  font-size: 16px;
+  box-sizing:border-box;
+  display: block;
+  margin-top: 13px;
+}
+
+i.fa.fa-clock-o {
+  font-size: 16px;
+ box-sizing:border-box;
+ display: block;
+ margin-top: 13px;
+}
+
+i.fa.fa-money {
+  font-size: 16px;
+ box-sizing:border-box;
+ display: block;
+ margin-top: 13px;
 }

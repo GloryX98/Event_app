@@ -5,6 +5,7 @@ import UserStore from './stores/UserStore';
 import LoginForm from './components/LoginForm';
 import './App.css';
 import Signup from './components/Signup';
+import Home from './components/Home';
 
 class App extends React.Component{
 
@@ -82,26 +83,34 @@ class App extends React.Component{
           </div>
         );
       }
+      // return(
+      //   <Router>
+      //   <div>
+      //     <h2 className='header'>Welcome To GloryEvents Homepage</h2> 
+      //     <nav>
+      //     <ul>
+      //       <li><Link to={'/'} className="nav-link"> Registration </Link></li>
+      //       {/* <li><Link to={'/signup'} className="nav-link">Contact</Link></li> */}
+      //       <li><Link to={'/login'} className="nav-link">Login</Link></li>
+
+      //       <li><Link to={'/myapp/src/components/Home.js'} className="nav-link"> Home Page </Link></li>
+      //     </ul>
+      //     </nav>
+      //     <hr />
+      //     <Switch>
+      //         <Route exact path='/' component={Signup} />
+      //         {/* <Route path='/' component={Signup} /> */}
+      //         <Route path='/login' component={LoginForm} />
+
+      //         <Route path='/' component={Home} />
+      //     </Switch>
+      //   </div>
+      // </Router>
+      // );
+
       return(
-        <Router>
-        <div>
-          <h2 className='header'>Welcome To GloryEvents Homepage</h2> 
-          <nav>
-          <ul>
-            <li><Link to={'/'} className="nav-link"> Home </Link></li>
-            {/* <li><Link to={'/signup'} className="nav-link">Contact</Link></li> */}
-            <li><Link to={'/login'} className="nav-link">Login</Link></li>
-          </ul>
-          </nav>
-          <hr />
-          <Switch>
-              <Route exact path='/' component={Signup} />
-              {/* <Route path='/' component={Signup} /> */}
-              <Route path='/login' component={LoginForm} />
-          </Switch>
-        </div>
-      </Router>
-      );
+        <Home></Home>
+      )
     }
   }
 }
